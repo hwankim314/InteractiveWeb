@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Interative Web</title>
+  <link rel="stylesheet" href="">
+  <style>
+    @keyframes sample-ani{
+      0%{
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(300px, 0);
+        background: blue;
+      }
+      100% {
+        transform: translate(500px, 500px);
+        background: dodgerblue;
+      }
+    }
+    .box{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+      background: skyblue;
+      animation: sample-ani 3s linear forwards;
+    }
+    .box:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+  <h1>Animation</h1>
+  <div class="box">BOX</div>
+</body>
+</html>
