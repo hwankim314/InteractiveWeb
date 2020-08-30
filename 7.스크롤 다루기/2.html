@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll</title>
+    <link rel="stylesheet" href="2.css">
+    <link rel="stylesheet" href="css/reset.css">
+  </head>
+  <body>
+    <div class="output">output</div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <figure class="ilbuni">
+        <img src="images/ilbuni_0.png" alt="일분이">
+      </figure>
+    </div>
+    <script>
+      (function(){
+        const outputElem = document.querySelector('.output');
+        const ilbuniElem = document.querySelector('.ilbuni');
+
+        function showValue(){
+          // outputElem.innerHTML = window.pageYOffset;
+          // outputElem.innerHTML = ilbuniElem.offsetTop;
+          let posY = ilbuniElem.getBoundingClientRect().top;
+          outputElem.innerHTML = posY;
+
+          if (posY < window.innerHeight * 0.2){
+            ilbuniElem.classList.add('zoom');
+          } else{
+            ilbuniElem.classList.remove('zoom');
+          }
+        }
+
+        window.addEventListener('scroll', function(){showValue();});
+
+      })();
+    </script>
+  </body>
+</html>

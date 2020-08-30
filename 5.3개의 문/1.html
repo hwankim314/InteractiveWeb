@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3 Doors</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="door">
+      <div class="door-back">
+        <div class="ilbuni"></div>
+      </div>
+      <div class="door-body"></div>
+    </div>
+    <div class="door">
+      <div class="door-back">
+        <div class="ilbuni"></div>
+      </div>
+      <div class="door-body"></div>
+    </div>
+    <div class="door">
+      <div class="door-back">
+        <div class="ilbuni"></div>
+      </div>
+      <div class="door-body"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const stageElem = document.querySelector('.stage');
+      let currentItem;
+
+      function activate(elem){
+        elem.classList.add('door-opened');
+        currentItem = elem;
+      }
+
+      function inactivate(elem){
+        elem.classList.remove('door-opened');
+      }
+
+      function doorHandler(e){
+        const targetElem = e.target;
+
+        if (currentItem){
+          inactivate(currentItem);
+        }
+
+        if(targetElem.classList.contains('door-body')){
+          activate(targetElem.parentNode);
+        }
+      }
+
+      stageElem.addEventListener('click', doorHandler);
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Object</title>
+  <link rel="stylesheet" href="1.css">
+  <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+  <h1>Object</h1>
+
+  <script>
+    function Card(num, color){
+      this.num = num;
+      this.color = color;
+      this.init();
+    }
+    Card.prototype = {
+      constructor: Card,
+      init: function(){
+        const mainElem = document.createElement('div');
+        mainElem.style.color = this.color;
+        mainElem.innerHTML = this.num;
+        mainElem.classList.add('card');
+        document.body.appendChild(mainElem);
+      }
+    };
+    const card1 = new Card(1, 'green');
+    const card2 = new Card(7, 'blue');
+  </script>
+</body>
+</html>
